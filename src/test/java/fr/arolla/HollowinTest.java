@@ -1,10 +1,8 @@
 package fr.arolla;
 
-
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class HollowinTest {
@@ -34,5 +32,17 @@ public class HollowinTest {
   //then
   assertThat(result).isEqualTo("Trick or treat!");
   }
+ @Test
+ public void should_return_trick_or_treat_when_3_children_have_2_paquets(){
+  //given
+  List<String> packetsOfItems1 = List.of("candy","apple","candy");
+  List<String> packetsOfItems2 = List.of("candy","candy");
+  List<List<String>> listOfPaquets = List.of(packetsOfItems1,packetsOfItems2);
+  //when
+
+  String result = Hollowin.showHolowinResponse(3,listOfPaquets);
+  //then
+  assertThat(result).isEqualTo("Trick or treat!");
+ }
 
 }

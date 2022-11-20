@@ -5,11 +5,15 @@ import java.util.List;
 public class Hollowin {
 
     public static String showHolowinResponse(int children, List<List<String>> listOfPaquets) {
-    for(List<String> paquet: listOfPaquets){
-        if(paquet.contains("bomb")){
+        if(children > listOfPaquets.size()) {
             return "Trick or treat!";
         }
-    }
+
+      for(List<String> paquet: listOfPaquets){
+        if(paquet.contains("bomb")){
+            return "Trick or treat!";
+         }
+       }
 
         return "Thank you, strange uncle!";
     }
