@@ -7,25 +7,32 @@ import java.util.Objects;
 public class Hollowin {
 
 
+    public static final String TRICK_OR_TREAT = "Trick or treat!";
+    public static final String THANK_YOU_STRANGE_UNCLE = "Thank you, strange uncle!";
+    public static final int MAX_AMOUNT = 2;
+    public static final String BOMB = "bomb";
+    public static final String CANDY = "candy";
+
     public static String showHolowinResponse(int children, List<List<String>> listOfPaquets) {
+
         if (children > listOfPaquets.size()) {
-            return "Trick or treat!";
+            return TRICK_OR_TREAT;
         }
 
         List<String> paquetFiltredOnlyCandy;
         List<List<String>> bagFiltredOnlyCandy = new ArrayList<>();
 
-        int maxAmount = 2;
+        int maxAmount = MAX_AMOUNT;
 
         for (List<String> paquet : listOfPaquets) {
-
             paquetFiltredOnlyCandy = new ArrayList<>();
 
             for (int i = 0; i < paquet.size(); i++) {
-                if (paquet.size() < 2 || paquet.contains("bomb")) {
-                    return "Trick or treat!";
+
+                if (paquet.size() < 2 || paquet.contains(BOMB)) {
+                    return TRICK_OR_TREAT;
                 }
-                if (Objects.equals(paquet.get(i), "candy")) {
+                if (Objects.equals(paquet.get(i), CANDY)) {
                     paquetFiltredOnlyCandy.add(paquet.get(i));
                 }
             }
@@ -39,10 +46,10 @@ public class Hollowin {
 
         for (List<String> paquet : bagFiltredOnlyCandy) {
             if (paquet.size() < maxAmount) {
-                return "Trick or treat!";
+                return TRICK_OR_TREAT;
             }
         }
 
-        return "Thank you, strange uncle!";
+        return THANK_YOU_STRANGE_UNCLE;
     }
 }
